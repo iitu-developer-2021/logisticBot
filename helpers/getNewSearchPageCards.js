@@ -1,6 +1,6 @@
 import * as api from "../api/search.js";
 import { parse } from "node-html-parser";
-export async function getNewSearchPageCards(allActualCards){
+export async function getNewSearchPageCards(allActualCards, onlyActual = true){
     try{
         const data = await api.fetchSearchPage()
         const root = parse(data)
@@ -39,7 +39,7 @@ export async function getNewSearchPageCards(allActualCards){
         return {
             status: 'success',
             message: "Успешно отработано",
-            result: shymkentFilteredCards.filter((card) => allActualCards.findIndex(actualCard => card.id === actualCard.id) === -1)
+            result: onlyActual ? shymkentFilteredCards.filter((card) => allActualCards.findIndex(actualCard => card.id === actualCard.id) === -1) : shymkentFilteredCards
         }
     }catch(e){
         return {
