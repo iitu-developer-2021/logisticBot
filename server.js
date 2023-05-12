@@ -13,7 +13,7 @@ bot.on('message', async (msg) => {
     const newSearchPageCards = await getNewSearchPageCards(allActualCards)
     allActualCards.push(...newSearchPageCards.result)
 
-    if(newSearchPageCards.status === 'success'){
+    if(newSearchPageCards.status === 'success' && newSearchPageCards.result.length > 0){
         bot.sendMessage(msg.chat.id, objectToString(newSearchPageCards.result))
     }else if(newSearchPageCards.status === 'error'){
         bot.sendMessage(msg.chat.id, objectToString(newSearchPageCards.result))
