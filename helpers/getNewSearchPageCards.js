@@ -42,6 +42,7 @@ export async function getNewSearchPageCards(allActualCards, onlyActual = true){
             result: onlyActual ? shymkentFilteredCards.filter((card) => allActualCards.findIndex(actualCard => card.id === actualCard.id) === -1) : shymkentFilteredCards
         }
     }catch(e){
+        console.log(e.message)
         return {
             status: 'error',
             message: e?.message || "Случилась ошибка",

@@ -19,6 +19,7 @@ export const getNewCardsWithPhone = async (cards) => {
             })
            await sleep(1000)
        }catch(e){
+           console.log(e.message, card.id)
            newCards.push({
                ...card,
                phone:  'Контакт: Нет номера'
