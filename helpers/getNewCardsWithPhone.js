@@ -18,7 +18,7 @@ export const getNewCardsWithPhone = async (cards) => {
                 ...card,
                 phone: phoneStr
             })
-           await sleep(1000)
+           await sleep(3000)
        }catch(e){
            console.log(e.message, card.id)
            newCards.push({
