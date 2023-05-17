@@ -6,11 +6,9 @@ import { getNewSearchPageCards } from "./helpers/getNewSearchPageCards.js";
 import { objectToString } from "./helpers/objectToString.js";
 import { sleep } from "./helpers/sleep.js";
 
-
 const allActualCards = []
 
 const bot = new TelegramBot(config.telegramBotToken, {polling: true});
-
 
 bot.on('message', async (msg) => {
     const newSearchPageCards = await getNewSearchPageCards(allActualCards, false)

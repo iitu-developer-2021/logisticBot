@@ -7,6 +7,7 @@ export const getNewCardsWithPhone = async (cards) => {
     for(let card of cards){
        try{
            const data = await fetchPhoneNumber(card.id)
+           console.log(data)
            const root = parse(data.request_info_block)
            const phone = root.querySelectorAll('.request_contacts .contact a')
            const phoneStr = phone.reduce((result, phoneItem, index) => {
